@@ -24,7 +24,7 @@
 所以一般异步是配合非阻塞使用的，这样才能发挥异步的效用。
 ——来源网络，作者不明。
 
-
+###############################################################################
 #多线程，多进程
 import multiprocessing
 import threading
@@ -46,11 +46,11 @@ def multi_threads_zip(task_date):
     for t in threads:
         t.join()
       
-
+###############################################################################
 from multiprocessing import Process,Pool
 from multiprocessing import Manager
 import time
- 
+
 def Foo(i):
     time.sleep(1)
     return i+50
@@ -61,12 +61,9 @@ def Bar(arg):
 if __name__ =='__main__':
     pool = Pool(5)
     for i in range(10):
- 
-        '''apply是去简单的去执行，而apply_async是执行完毕之后可以执行一
-        个回调函数，起提示作用'''
+        '''apply是去简单的去执行，而apply_async是执行完毕之后可以执行一个回调函数，起提示作用'''
         pool.apply_async(func=Foo,args=(i,),callback=Bar)#是异步的
         print('你好')
     pool.close()#不执行close会报错，因为join的源码里面有个断言会检验是否执行了该方法
     pool.join()#等待所有子进程运行完毕，否则的话由于apply_async里面daemon是设置为True的，主进程不会等子进程，所欲函数可能会来不及执行完毕就结束了
-'''apply_async里面，等函数Foo执行完毕，它的返回结果会被当做参数
-    传给Bar'''
+        '''apply_async里面，等函数Foo执行完毕，它的返回结果会被当做参数传给Bar'''
