@@ -1,0 +1,11 @@
+1.%-formatting和str.format()
+案例：
+print('%s is %d' % ("a", 8))
+"{} {} {}".format("stj", "is", "me")
+https://www.cnblogs.com/alfred0311/p/7735539.html
+
+2.f-string
+案例：
+name = "stj"
+age = 18
+f"Hello, {name}. You are {age}."
