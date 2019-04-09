@@ -1,6 +1,8 @@
 from wordcloud import WordCloud
 
+
 fig, ax = plt.subplots(figsize = (16, 12))
+
 plt.subplot(1, 2, 1)
 text_cat = ' '.join(all_data.loc[all_data['Type'] == 'Cat', 'Name'].fillna('').values)
 wordcloud = WordCloud(max_font_size=None, background_color='white',
@@ -8,10 +10,10 @@ wordcloud = WordCloud(max_font_size=None, background_color='white',
 plt.imshow(wordcloud)
 plt.title('Top cat names')
 plt.axis("off")
+
 plt.subplot(1, 2, 2)
 text_dog = ' '.join(all_data.loc[all_data['Type'] == 'Dog', 'Name'].fillna('').values)
 wordcloud = WordCloud(max_font_size=None, background_color='black',
-
                       width=1200, height=1000).generate(text_dog)
 plt.imshow(wordcloud)
 plt.title('Top dog names')
