@@ -1,0 +1,6 @@
+写入csv:
+import csv
+f=open('D:/test0718.csv','w',newline='') #newline=''   解决写入csv中间隔一行空行问题
+writer = csv.writer(f)
+writer.writerow([i,j,avip,ccav,time,timefirst1])
+f.close()
