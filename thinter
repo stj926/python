@@ -1,0 +1,61 @@
+一、消息框
+
+import tkinter
+import tkinter.messagebox #这个是消息框，对话框的关键
+
+提示消息框
+tkinter.messagebox.showinfo('提示','人生苦短')
+
+消息警告框
+tkinter.messagebox.showwarning('警告','明日有大雨')
+
+错误消息框
+tkinter.messagebox.showerror('错误','出错了')
+
+import tkinter
+import tkinter.messagebox
+def but():
+    tkinter.messagebox.showinfo('提示', '人生苦短')
+    #tkinter.messagebox.showwarning('警告', '明日有大雨')
+    #tkinter.messagebox.showerror('错误', '出错了')
+root=tkinter.Tk()
+root.title('GUI')#标题
+root.geometry('800x600')#窗体大小
+root.resizable(False, False)#固定窗体
+tkinter.Button(root, text='hello button',command=but).pack()
+root.mainloop()
+
+二、对话框
+
+import tkinter
+import tkinter.messagebox
+def but():
+    a=tkinter.messagebox.askokcancel('提示', '要执行此操作吗')
+    print (a)
+root=tkinter.Tk()
+root.title('GUI')#标题
+root.geometry('800x600')#窗体大小
+root.resizable(False, False)#固定窗体
+tkinter.Button(root, text='hello button',command=but).pack()
+root.mainloop()
+
+a=tkinter.messagebox.askquestion('提示', '要执行此操作吗')
+返回 yes 和 no
+a=tkinter.messagebox.askyesno('提示', '要执行此操作吗')
+返回 Ture 和 False
+a=tkinter.messagebox.askretrycancel('提示', '要执行此操作吗')
+返回 Ture 和 False
+a=tkinter.messagebox.askyesnocancel('提示', '要执行此操作吗')
+是：True
+否：False
+取消：None
+
+三、filedialog  文件对话框
+用来获取文件路径和文件名
+import tkinter.filedialog
+a=tkinter.filedialog.askopenfilename()
+输出a得到文件路径和名字
+E:/1.txt
+
+
+参考:https://www.cnblogs.com/buchizaodian/p/7076964.html
