@@ -1,0 +1,24 @@
+import jieba
+
+word_list = jieba.cut("今天天气真好。亲爱的，我们去远足吧！",cut_all=True)
+print("全模式：","|".join(word_list))
+
+word_list = jieba.cut("今天天气真好。亲爱的，我们去远足吧！",cut_all=False)
+print("精确模式：","|".join(word_list))
+
+word_list = jieba.cut_for_search("今天天气真好。亲爱的，我们去远足吧！")
+print("搜索引擎：","|".join(word_list))
+
+jieba.load_userdict('./cu.txt')
+word_list = jieba.cut("今天去远足吗？要不咱们换个地方吧！园小圆怎么样？没问题小豆芽")
+print("|".join(word_list))
+
+import jieba.posseg as pseg
+
+words = pseg.cut("青岛北京是不错的地方")
+for word in words:
+    print(word.word,word.flag)
+    
+result = jieba.tokenize(u'今天天气真好。亲爱的，我们去远足吧！')
+for token in result:
+    print("word %s\t\t start: %d \t\t end:%d" % (token[0],token[1],token[2]))
