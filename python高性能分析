@@ -1,4 +1,4 @@
-参<<python高性能>>&<<python高性能编程>>
+参考<<python高性能>>&<<python高性能编程>>
 
 time:
 t1= time.time()
@@ -21,3 +21,28 @@ memory_profiler： 内存用量诊断工具
 先通过修饰器‘@profile’标记需要分析的函数，然后运行如下命令。
 python -m memory_profiler code_need_analyse.py
 
+heapy：内存堆调查工具
+pip install guppy
+例：
+def calc_pure_python(draw_output, desired_width, max_iterations):
+    ...
+    while xcoord < x2:
+        x.append(xcoord)
+        xcoord += x_step
+    from guppy import hpy; hp = hpy()
+    print("heapy after creating y and x lists of floats")
+    h = hp.heap()
+    print(h) 
+    print
+    zs = []
+    cs = []
+    for ycoord in y:
+        for xcoord in x:
+            zs.append(complex(xcoord, ycoord))
+            zs.append(complex(c_real, c_imag))
+    print("heapy after creating zs and cs using complex numbers")
+    h = hp.heap()
+    print(h)
+  
+  
+参考：https://blog.csdn.net/xiaoqu001/article/details/83472353
