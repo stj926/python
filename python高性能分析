@@ -1,0 +1,23 @@
+参<<python高性能>>&<<python高性能编程>>
+
+time:
+t1= time.time()
+print(time.time()t1)
+
+cProfile:分析每个函数运行花费的时间
+# 直接把分析结果打印到控制台
+python -m cProfile test.py
+# 把分析结果保存到文件中
+python -m cProfile -o result.out test.py
+# 增加排序方式
+python -m cProfile -o result.out -s cumulative test.py
+
+line_profiler：逐行分析
+pip install line_profiler
+先通过修饰器‘@profile’标记需要分析的函数，然后运行如下命令。
+kernprof -l -v test.py
+
+memory_profiler： 内存用量诊断工具
+先通过修饰器‘@profile’标记需要分析的函数，然后运行如下命令。
+python -m memory_profiler code_need_analyse.py
+
