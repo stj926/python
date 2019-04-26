@@ -1,2 +1,35 @@
-https://blog.csdn.net/sunshunli/article/details/81431500
+include_top: boolean (True or False) 
+是否包含最上层的全连接层. 因为VGGNET最后有三个全连接层, 因此,这个选项表示是否需要最上面的三个全连接层. 一般网络最后都会有全连接层, 最后一个全连接层更是设定了分类的个数, loss的计算方法, 并架设了一个概率转换函数(soft max). 其实soft max的作用就是将输出转换为各类别的概率,并计算loss. 
+可以这么说, 最上面三层使用来进行分类的, 其余层使用来进行特征提取的. 因此如果include_top=False,也就表示这个网络只能进行特征提取. 不能在进行新的训练或者在已有权重上fine-tune.
+weights: ‘None’ / ‘imagenet’ / path (to the weight file) 
+None表示没有指定权重,对网络参数进行随机初始化. 
+‘imagenet’ 表示加载imagenet与训练的网络权重. 
+‘path’ 表示指向权重文件的路径. 
+VGG16 的框架是确定的, 而其权重参数的个数和结构完全由输入决定. 
+如果weight = None, 则输入尺寸可以任意指定,(范围不得小于48, 否则最后一个卷积层没有输出). 
+如果 weight = ‘imagenet’, 则输入尺寸必须严格等于(224,224), 权重的规模和结构有出入唯一决定, 使用了imagenet的权重,就必须使用训练时所对应的输入, 否则第一个全连接层的输入对接不上. (例如, 原来网络最后一个卷基层的输出为 300, 全连接层的神经元有1000个,则这里权重的结构为300X1000), 而其他的出入不能保证卷基层输出为300, 则对接不上会报错). 
+如果 weight = ‘path’, 则输入必须和path对应权值文件训练时的输入保持一致.
+input_tensor: 图片tonsor输入项
+input_shape: tuple 
+如果include_top = False(表示用网络进行特征提取), 此时需要指定输入图片尺寸. 如果include_top = True(表示网路被用来进行重新训练或fine-tune), 则图片输入尺寸必须在有效范围内(width & height 大于48)或和加载权重训练时的输入保持一致.
+pooling: 当include_top = False(网络被用于特征提取时改参数有效) 
+(纯自己理解, 可能有误). 
+最后一个卷基层的输出应该是一个4D的向量.(M,1,w’,h’), 其中w’和h’表示卷积过后得到的基本尺寸. 可以这样想象, 待卷积的目标是一个(N, w, h)的矩阵. 每卷积一次都是在这个矩阵的(n, w,h)上进行卷积, n表示卷积核的深度(2D=2, 3D=3). 最后依然会得到(M, w’,h’)这样一个维度的矩阵作为卷基层的输出. 把每一个2D的(w’, h’)看做一个维度, 那么最终输出就是4D的(M,1,w’,h’).那么: 
+pooling = None, 表示对输出的特征不作处理,依然是4D的. 
+pooling = ‘avg’, 表示在M维度进行平均, 最终得到的是一个(1,1,w’,h’)的特征输出. 
+pooling = ‘max’, 亦然.
+classes: 要训练的类别数. 仅当include_top = True, 没有’weights’参数给定.(表示训练一个新网络)
+
+
+
+
+
+
+
+for layer in base_model.layers:
+    layer.trainable = False
+
+
 https://www.cnblogs.com/hutao722/p/9546521.html
+https://blog.csdn.net/sinat_26917383/article/details/72982230
+https://blog.csdn.net/sunshunli/article/details/81431500
