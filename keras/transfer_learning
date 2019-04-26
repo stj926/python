@@ -25,9 +25,13 @@ classes: 要训练的类别数. 仅当include_top = True, 没有’weights’参
 
 
 
-
-for layer in base_model.layers:
+冻结某些层
+for layer in model.layers[:FREEZE_LAYERS]:
     layer.trainable = False
+for layer in model.layers[FREEZE_LAYERS:]:
+    layer.trainable = True
+for layer in model.layers:
+    print("layer.trainable:", layer.trainable)
 
 
 https://www.cnblogs.com/hutao722/p/9546521.html
