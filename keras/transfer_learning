@@ -34,6 +34,7 @@ for layer in model.layers:
     print("layer.trainable:", layer.trainable)
 
 
+http://m.elecfans.com/article/674017.html
 https://www.cnblogs.com/hutao722/p/9546521.html
 https://blog.csdn.net/sinat_26917383/article/details/72982230
 https://blog.csdn.net/sunshunli/article/details/81431500
