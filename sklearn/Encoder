@@ -1,0 +1,6 @@
+#from sklearn.preprocessing import OneHotEncoder
+#from sklearn.preprocessing import LabelEncoder, LabelBinarizer, MultiLabelBinarizer
+from sklearn.preprocessing import LabelBinarizer
+lb = LabelBinarizer()
+lb_y = lb.fit_transform(train_y)
+lb.inverse_transform(lb_y[0:1])
