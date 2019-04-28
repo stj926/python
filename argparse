@@ -6,7 +6,7 @@ parser = argparse.ArgumentParser(description='参数说明')
 #parser.add_argument('--sum', dest='accumulate', action='store_const',
 #                    const=sum, default=max,
 #                    help='sum the integers (default: find the max)')
-parser.add_argument('-s', '--stj', nargs='*', help='描述') #可变参数
+parser.add_argument('-s', '--stj', nargs='*', help='描述') #nargs可变参数
 args = parser.parse_args()
 print(args.accumulate(args.integers))
 
