@@ -1,6 +1,6 @@
 import argparse
 
-parser = argparse.ArgumentParser(description='Process some integers.')
+parser = argparse.ArgumentParser(description='参数说明')
 parser.add_argument('integers', metavar='N', type=int, nargs='+',
                     help='an integer for the accumulator')
 parser.add_argument('--sum', dest='accumulate', action='store_const',
