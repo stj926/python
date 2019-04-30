@@ -1,1 +1,8 @@
-numpy.linalg模块包含线性代数的函数。使用这个模块，可以计算逆矩阵、求特征值、解线性方程组以及求解行列式等
+numpy.linalg模块包含线性代数的函数.使用这个模块，可以计算逆矩阵、求特征值、解线性方程组以及求解行列式等
+
+np.linalg.norm:求范数
+x_norm=np.linalg.norm(x, ord=None, axis=None, keepdims=False)
+x:表示矩阵
+ord:范数类型
+axis:0行1列
+keepding:True False是否保持矩阵的二维特性
