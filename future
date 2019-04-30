@@ -1,0 +1,13 @@
+__future__主要针对python2
+
+from __future__ import absolute_import 绝对引入
+只能导入系统环境路径里面的包，导入不了你写的应用程序的子包，如果导入你写的应用程序的子包必须使用from ..submodule import b
+
+from __future__ import division
+导入python未来支持的语言特征division(精确除法)
+
+from __future__ import print_function
+print(a)
+
+from __future__ import with_statement
+with open(a) as f:
