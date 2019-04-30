@@ -1,0 +1,13 @@
+不要使用可变对象作为函数默认值
+
+try: retrun finally
+
+lambda argument_list: expression
+my_list = [lambda: i for i in range(5)]
+
+不要在循环中修改循环项
+
+python多继承：MRO(Method Resolution Order)
+
+全局变量:对于一个全局变量，你的函数里如果只使用到了它的值，而没有对其赋值（指a = XXX这种写法）的话，就不需要声明global。
+相反，如果你对其赋了值的话，那么你就需要声明global。声明global的话，就表示你是在向一个全局变量赋值，而不是在向一个局部变量赋值。
