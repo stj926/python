@@ -1,5 +1,5 @@
 一、DOM写XML文件
-#导入minidom
+# 导入minidom
     from xml.dom import minidom
 
     # 1.创建DOM树对象
