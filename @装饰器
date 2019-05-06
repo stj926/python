@@ -17,3 +17,19 @@ c(3,4)
 2
 7
 3
+
+
+# @property
+class Demo(object):
+    def __init__(self):
+        self.name = 'stj'
+        self.__age = 18
+        self._other = 'yes'
+
+    @property
+    def agefunc(self):
+        return self.__age
+
+    @agefunc.setter
+    def agefunc(self, getage):
+        self.__age = getage
