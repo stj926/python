@@ -1,6 +1,6 @@
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
-#fig, axes = plt.subplots(2,3)
+# fig, axes = plt.subplots(2,3)
 ax1.hist(app_train['TARGET'])
 
 #################################################
@@ -14,7 +14,7 @@ sns.set_style('whitegrid')
 
 fig = plt.figure()
 ax1 = fig.add_subplot(111)#ax1 = fig.add_subplot(221)
-#sns.kdeplot(test['c'])#cumulative=True
+# sns.kdeplot(test['c'])#cumulative=True
 sns.distplot(test['c'])#cumulative=True
-#test['c'].plot('kde')
-#test['c'].value_counts()
+# test['c'].plot('kde')
+# test['c'].value_counts()
