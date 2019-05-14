@@ -1,3 +1,28 @@
+def get_parameter(df):
+    def func_wrapper(func):  # df, , wsum
+        def get_arg(*args):
+            liststj = []
+            for i in range(0, 10):
+                df = i
+                print(df)
+                liststj.append(func(df,*args))  # shoushilv(df, wsum)
+            return liststj
+        return get_arg
+    return func_wrapper
+
+
+@get_parameter(0)
+def demo(df, s):
+    print(s)
+    return df * 100
+
+
+demo('stj')
+
+
+#############################################################
+
+
 def a(func):
     print(1)
     def b(*args, **kwargs):
