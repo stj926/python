@@ -1,6 +1,7 @@
 def get_parameter(df):
     def func_wrapper(func):  # df, , wsum
         def get_arg(*args):
+            nonlocal df1
             liststj = []
             for i in range(0, 10):
                 df = i
@@ -12,8 +13,8 @@ def get_parameter(df):
 
 
 @get_parameter(0)
-def demo(df, s):
-    print(s)
+def demo(*s):
+    print(*s)
     return df * 100
 
 
