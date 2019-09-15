@@ -18,3 +18,30 @@ greenlet2 = gevent.spawn(fn, 3)
 # 等待greenlet2执行结束
 # greenlet2.join()
 gevent.joinall([greenlet1, greenlet2])
+
+##############################################################################
+
+import gevent
+from gevent import socket
+
+urls = [
+    "www.baidu.com",
+    "www.python.org",
+    "www.example.com"
+]
+
+jobs = [
+    gevent.spawn(socket.gethostbyname, url) for url in urls        
+]
+
+gevent.joinall(jobs, timeout=2)
+
+result = [
+    job.value for job in jobs        
+]
+
+print(result)
+
+
+
+https://www.jianshu.com/p/73ccb425a710
