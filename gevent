@@ -1,0 +1,20 @@
+import gevent
+from gevent import monkey
+
+monkey.patch_socket()
+
+
+def fn(n):
+    for i in range(n):
+        print(gevent.getcurrent(), i)
+        gevent.sleep(0)
+        
+# 创建协程对象
+greenlet1 = gevent.spawn(fn, 3)
+greenlet2 = gevent.spawn(fn, 3)
+# 合并两步操作
+# 等待greenlet1执行结束
+# greenlet1.join()
+# 等待greenlet2执行结束
+# greenlet2.join()
+gevent.joinall([greenlet1, greenlet2])
