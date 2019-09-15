@@ -22,7 +22,8 @@ gevent.joinall([greenlet1, greenlet2])
 ##############################################################################
 
 import gevent
-from gevent import socket
+from gevent import socket, monkey
+monkey.patch_all()
 
 urls = [
     "www.baidu.com",
