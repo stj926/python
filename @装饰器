@@ -1,3 +1,28 @@
+import requests
+
+def retry(cishu = 1):
+    def outer(func):
+        def inner():
+            num = 1
+            for i in range(cishu):
+                try:
+                    func()
+                    break
+                except:
+                    print(f'第{num}次尝试失败')
+                    num += 1
+        return inner
+    return outer
+
+
+@retry(cishu=3)
+def get():
+    print(requests.get('https://baiduuu.com'))
+
+get()
+
+########################################################################
+
 def get_parameter(df):
     def func_wrapper(func):  # df, , wsum
         def get_arg(*args):
