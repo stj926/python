@@ -4,7 +4,19 @@ fig, axes = plt.subplots(2,3) #等价于上两句
 ax1.hist(app_train['TARGET'])
 
 #################################################
+x_ = ['个人id', '电视id']
+y_ = [data['个人id'].nunique(), data['电视id'].nunique()]
 
+fig, axes = plt.subplots(1, 1)
+plt.bar(x_, y_)
+# plt.xlabel(''个人id', '电视id') #设置x轴名称
+# plt.ylabel('uv') #设置y轴名称
+
+plt.text(x_[0], y_[0], y_[0], ha='center', va= 'bottom',fontsize=12)
+plt.text(x_[1], y_[1], y_[1], ha='center', va= 'bottom',fontsize=12)
+plt.title('id数量') #设置图片名称
+
+#################################################
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
