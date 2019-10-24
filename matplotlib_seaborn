@@ -1,6 +1,6 @@
-fig = plt.figure()
-ax1 = fig.add_subplot(111)
-# fig, axes = plt.subplots(2,3)
+# fig = plt.figure()
+# ax1 = fig.add_subplot(111)
+fig, axes = plt.subplots(2,3) #等价于上两句
 ax1.hist(app_train['TARGET'])
 
 #################################################
